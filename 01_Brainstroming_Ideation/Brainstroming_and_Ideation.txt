@@ -1,0 +1,39 @@
+EDUGENIE – GOOGLE GEMINI POWERED LEARNING ASSISTANT
+
+PHASE 1 – BRAINSTORMING & IDEATION
+
+1. Problem Statement
+
+Students often spend a lot of time searching for explanations, study resources, summaries, and practice questions from different sources. Complex topics may also be difficult to understand through traditional learning methods. There is a need for a simple and interactive learning assistant that can provide quick, understandable, and personalized educational support.
+
+2. Proposed Solution
+
+EduGenie is a Google Gemini-powered learning assistant designed to help students learn more effectively through an easy-to-use web application. It uses generative AI to answer questions, explain difficult concepts in simple language, generate quizzes, provide summaries, and guide students with useful learning resources.
+
+3. Objectives
+
+• Provide quick answers to students' academic questions.
+• Explain complex topics in simple and understandable language.
+• Generate personalized quizzes for practice.
+• Provide concise and useful summaries of topics.
+• Help students follow suitable learning paths.
+• Provide useful learning resources and guidance.
+• Create a simple and user-friendly learning experience.
+
+4. Target Users
+
+• School students
+• College students
+• Students preparing for exams
+• Self-learners
+• Learners who need quick explanations and practice
+
+5. Key Features
+
+• AI-powered Question & Answer
+• Simple Explanation of Complex Topics
+• Personalized Quiz Generation
+• Topic Summarization
+• Smart Learning Paths
+• Learning Resource Guidance
+• User-friendly Web Interface

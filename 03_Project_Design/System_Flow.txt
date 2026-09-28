@@ -1,0 +1,54 @@
+EDUGENIE – SYSTEM FLOW
+
+PHASE 3 – PROJECT DESIGN
+
+USER
+  |
+  v
+OPEN EDUGENIE WEB APPLICATION
+  |
+  v
+SELECT REQUIRED FEATURE
+  |
+  +-------------------+
+  |                   |
+  v                   v
+ENTER QUESTION     ENTER TOPIC
+  |                   |
+  +---------+---------+
+            |
+            v
+       FASTAPI BACKEND
+            |
+            v
+      GOOGLE GEMINI API
+            |
+            v
+       AI PROCESSING
+            |
+            v
+     GENERATED RESPONSE
+            |
+            v
+      DISPLAY RESULT
+            |
+            v
+           USER
+
+
+CORE FEATURE FLOW
+
+1. Question & Answer
+User Question → FastAPI → Gemini API → AI Answer → Display
+
+2. Simple Explanation
+Complex Topic → FastAPI → Gemini API → Simple Explanation → Display
+
+3. Personalized Quiz
+Topic → FastAPI → Gemini API → Quiz Questions → Display
+
+4. Topic Summary
+Topic/Content → FastAPI → Gemini API → Summary → Display
+
+5. Learning Guidance
+Topic → FastAPI → Gemini API → Learning Guidance → Display

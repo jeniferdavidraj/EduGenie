@@ -1,0 +1,68 @@
+EDUGENIE – GOOGLE GEMINI POWERED LEARNING ASSISTANT
+
+PHASE 2 – REQUIREMENT ANALYSIS
+
+1. Functional Requirements
+
+• The system should accept questions from students.
+• The system should generate AI-based answers using Google Gemini.
+• The system should explain complex topics in simple language.
+• The system should generate quizzes based on the selected topic.
+• The system should generate summaries of educational topics.
+• The system should provide suitable learning paths and resource guidance.
+• The system should display the generated results clearly through the web interface.
+
+2. Non-Functional Requirements
+
+• The application should be simple and user-friendly.
+• The system should provide responses within a reasonable time.
+• The application should be reliable and easy to use.
+• The interface should be clear and responsive.
+• The project should be modular and easy to maintain.
+• The system should handle invalid or incomplete user inputs properly.
+
+3. Hardware Requirements
+
+• Computer or laptop
+• Minimum 4 GB RAM
+• Internet connection
+• Keyboard and mouse
+
+4. Software Requirements
+
+• Windows operating system
+• Python
+• FastAPI
+• HTML
+• CSS
+• Google Gemini API
+• Web browser
+• Visual Studio Code or any suitable code editor
+• Git and GitHub
+
+5. User Requirements
+
+Students should be able to:
+• Enter their questions.
+• Request simple explanations.
+• Generate quizzes for practice.
+• Get summaries of topics.
+• Receive learning guidance and useful resources.
+
+6. System Requirements
+
+• Internet connection is required for Gemini API-based features.
+• A valid Gemini API key is required.
+• Python environment must be configured.
+• Required Python packages must be installed.
+• The application should run through a web browser.
+
+7. Expected System Output
+
+The system should provide:
+• AI-generated answers
+• Simple explanations
+• Personalized quizzes
+• Topic summaries
+• Learning paths
+• Resource guidance

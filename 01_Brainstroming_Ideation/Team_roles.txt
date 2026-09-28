@@ -1,0 +1,31 @@
+EDUGENIE – TEAM ROLES
+
+Team Size: 5 Members
+
+1. Jenifer – Team Leader
+• Project coordination
+• Integration of all modules
+• GitHub repository management
+• Final checking and submission coordination
+
+2. Pavithra – Q&A Module
+• Develop the AI Question & Answer feature
+• Work with Gemini API integration for Q&A
+
+3. Mahalakshmi – Explanation Module
+• Develop the Simple Explanation feature
+• Ensure complex topics are explained in easy language
+
+4. Kaniselvi – Quiz Module
+• Develop the Personalized Quiz Generation feature
+• Test quiz generation and output
+
+5. Magdhalin Prem Sheela – Summary & Learning Module
+• Develop Topic Summarization
+• Work on Smart Learning Paths and Resource Guidance
+
+ALL TEAM MEMBERS
+• Participate in testing
+• Fix issues in their respective modules
+• Contribute to documentation
+• Support the final project demonstration

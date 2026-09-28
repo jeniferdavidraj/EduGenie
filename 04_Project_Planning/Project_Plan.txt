@@ -1,0 +1,42 @@
+EDUGENIE – GOOGLE GEMINI POWERED LEARNING ASSISTANT
+
+PHASE 4 – PROJECT PLANNING
+
+1. Project Goal
+
+To develop an AI-powered learning assistant that helps students understand academic topics, get answers, generate quizzes, and summarize topics using Google Gemini.
+
+2. Development Plan
+
+Step 1: Set up the project environment
+Step 2: Create the backend using Python and FastAPI
+Step 3: Connect the Google Gemini API
+Step 4: Develop the Question & Answer feature
+Step 5: Develop the Topic Explanation feature
+Step 6: Develop the Quiz Generation feature
+Step 7: Develop the Topic Summarization feature
+Step 8: Create the web interface using HTML and CSS
+Step 9: Integrate the frontend with the backend
+Step 10: Test all features
+Step 11: Fix errors and improve the user interface
+Step 12: Prepare documentation and demo
+
+3. Team Members
+
+1. Jenifer – Team Leader and Project Integration
+2. Pavithra – Backend and API Support
+3. Mahalakshmi – Question & Answer and Explanation Module
+4. Kaniselvi – Quiz Generation Module
+5. Magdhalin Prem Sheela – Summarization and Testing Support
+
+4. Technologies
+
+- Python
+- FastAPI
+- HTML
+- CSS
+- Google Gemini API
+
+5. Expected Outcome
+
+A simple and user-friendly web application that provides AI-powered learning support to students through question answering, explanations, quizzes, summaries, and learning guidance.

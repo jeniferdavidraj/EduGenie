@@ -1,0 +1,81 @@
+EDUGENIE – GOOGLE GEMINI POWERED LEARNING ASSISTANT
+
+PHASE 3 – PROJECT DESIGN
+
+1. System Architecture
+
+EduGenie follows a simple web-based architecture:
+
+User
+  ↓
+HTML/CSS Web Interface
+  ↓
+FastAPI Backend
+  ↓
+Google Gemini API
+  ↓
+AI Processing
+  ↓
+Generated Response
+  ↓
+Web Interface
+
+2. Main Components
+
+• Frontend – Provides a simple and user-friendly interface.
+• FastAPI Backend – Handles user requests and connects the frontend with the AI service.
+• Google Gemini API – Generates intelligent educational responses.
+• Feature Modules – Q&A, Explanation, Quiz, Summary and Learning Guidance.
+• Web Browser – Used by students to access the application.
+
+3. Core Modules
+
+Module 1 – Question & Answer
+• Accepts academic questions from users.
+• Sends the question to the Gemini API.
+• Displays the generated answer.
+
+Module 2 – Simple Explanation
+• Accepts a complex topic.
+• Generates an easy-to-understand explanation.
+
+Module 3 – Personalized Quiz
+• Accepts a selected topic.
+• Generates practice questions and answers.
+
+Module 4 – Topic Summarization
+• Accepts a topic or educational content.
+• Generates a concise summary.
+
+Module 5 – Learning Path & Resource Guidance
+• Provides learning guidance based on the selected topic.
+• Suggests useful learning resources.
+
+4. User Flow
+
+1. User opens the EduGenie web application.
+2. User selects a required learning feature.
+3. User enters a question or topic.
+4. The request is sent to the FastAPI backend.
+5. The backend communicates with the Google Gemini API.
+6. Gemini processes the request.
+7. The generated response is returned to the backend.
+8. The result is displayed on the web interface.
+
+5. Technology Stack
+
+• Programming Language – Python
+• Backend Framework – FastAPI
+• Frontend – HTML and CSS
+• AI Service – Google Gemini API
+• Development Tool – Visual Studio Code
+• Version Control – Git and GitHub
+• Browser – Chrome or any modern web browser
+
+6. Design Goals
+
+• Simple and user-friendly interface
+• Fast and clear AI responses
+• Modular project structure
+• Easy maintenance and future enhancement
+• Useful learning experience for students

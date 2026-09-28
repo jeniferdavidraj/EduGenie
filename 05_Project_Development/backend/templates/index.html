@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EduGenie - AI Powered Learning Assistant</title>
+    <meta name="description" content="EduGenie is an intelligent AI learning companion powered by Google Gemini, designed for students of all academic levels.">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="background-decorations">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <div class="app-container">
+        <!-- Header -->
+        <header class="main-header">
+            <div class="badge-tag">
+                <span class="pulse-dot"></span>
+                <span>Powered by Google Gemini AI</span>
+            </div>
+            <h1 class="main-title">
+                Welcome to <span class="gradient-text">EduGenie</span> 💡
+            </h1>
+            <p class="subtitle">Your personal AI tutor for learning support!</p>
+            
+            <!-- Quick Feature Nav -->
+            <nav class="feature-nav">
+                <a href="#qa-section" class="nav-btn active">❓ Ask Question</a>
+                <a href="#explain-section" class="nav-btn">💡 Explain Concept</a>
+                <a href="#summary-section" class="nav-btn">📝 Summarize</a>
+                <a href="#quiz-section" class="nav-btn">🎯 Generate Quiz</a>
+                <a href="#learning-section" class="nav-btn">🚀 Learning Path</a>
+            </nav>
+        </header>
+
+        <!-- Main Content Grid -->
+        <main class="modules-stack">
+
+            <!-- 1. Q&A Module -->
+            <section id="qa-section" class="module-card">
+                <div class="card-header">
+                    <div class="icon-bubble icon-blue">❓</div>
+                    <div>
+                        <h2 class="card-title">Ask EduGenie a Question:</h2>
+                        <p class="card-desc">Ask any academic question and receive smart, concise answers instantly.</p>
+                    </div>
+                </div>
+
+                <div class="example-chips">
+                    <span class="chip-label">Quick test:</span>
+                    <button type="button" class="chip" onclick="fillInput('questionInput', 'Which is the largest ocean?')">Which is the largest ocean?</button>
+                    <button type="button" class="chip" onclick="fillInput('questionInput', 'Why is the sky blue?')">Why is the sky blue?</button>
+                    <button type="button" class="chip" onclick="fillInput('questionInput', 'What is Newton\'s third law of motion?')">Newton's 3rd Law</button>
+                </div>
+
+                <form id="qaForm" class="action-form" onsubmit="handleQA(event)">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="questionInput" 
+                            name="question" 
+                            placeholder="Why is the sky blue?" 
+                            required 
+                            autocomplete="off"
+                        >
+                        <button type="submit" id="qaBtn" class="btn-primary">
+                            <span class="btn-text">Get Answer</span>
+                            <span class="btn-loader" style="display: none;"></span>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="qaResult" class="output-box" style="display: none;">
+                    <div class="output-header">
+                        <span class="output-label">Answer:</span>
+                        <button type="button" class="copy-btn" onclick="copyContent('qaAnswerText')">📋 Copy</button>
+                    </div>
+                    <div id="qaAnswerText" class="output-content markdown-body"></div>
+                </div>
+            </section>
+
+
+            <!-- 2. Explanation Module -->
+            <section id="explain-section" class="module-card">
+                <div class="card-header">
+                    <div class="icon-bubble icon-purple">💡</div>
+                    <div>
+                        <h2 class="card-title">Need an Explanation?</h2>
+                        <p class="card-desc">Simplifies complex topics with beginner-friendly, crystal-clear breakdowns.</p>
+                    </div>
+                </div>
+
+                <div class="example-chips">
+                    <span class="chip-label">Quick test:</span>
+                    <button type="button" class="chip" onclick="fillInput('explainInput', 'Photosynthesis')">Photosynthesis</button>
+                    <button type="button" class="chip" onclick="fillInput('explainInput', 'Quantum Computing')">Quantum Computing</button>
+                    <button type="button" class="chip" onclick="fillInput('explainInput', 'Binary Search Algorithm')">Binary Search</button>
+                </div>
+
+                <form id="explainForm" class="action-form" onsubmit="handleExplain(event)">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="explainInput" 
+                            name="topic" 
+                            placeholder="Photosynthesis" 
+                            required 
+                            autocomplete="off"
+                        >
+                        <button type="submit" id="explainBtn" class="btn-primary">
+                            <span class="btn-text">Explain</span>
+                            <span class="btn-loader" style="display: none;"></span>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="explainResult" class="output-box" style="display: none;">
+                    <div class="output-header">
+                        <span class="output-label">Explanation:</span>
+                        <button type="button" class="copy-btn" onclick="copyContent('explainAnswerText')">📋 Copy</button>
+                    </div>
+                    <div id="explainAnswerText" class="output-content markdown-body"></div>
+                </div>
+            </section>
+
+
+            <!-- 3. Summary Module -->
+            <section id="summary-section" class="module-card">
+                <div class="card-header">
+                    <div class="icon-bubble icon-green">📝</div>
+                    <div>
+                        <h2 class="card-title">Summarize a Paragraph:</h2>
+                        <p class="card-desc">Condense large educational texts into concise, easy-to-review summaries.</p>
+                    </div>
+                </div>
+
+                <div class="example-chips">
+                    <span class="chip-label">Quick sample:</span>
+                    <button type="button" class="chip" onclick="fillInput('summaryInput', 'The Industrial Revolution, which began in the late 18th century, marked a major turning point in history. It shifted economies from agriculture and handmade manufacturing to mechanized factory production. Inventions like James Watt\'s improved steam engine boosted industries, but also brought rapid urbanization, challenging factory working conditions, and long-term socio-economic reforms.')">Industrial Revolution</button>
+                </div>
+
+                <form id="summaryForm" class="action-form" onsubmit="handleSummarize(event)">
+                    <div class="input-col">
+                        <textarea 
+                            id="summaryInput" 
+                            name="text" 
+                            rows="4" 
+                            placeholder="Paste long content to summarize..." 
+                            required
+                        ></textarea>
+                        <button type="submit" id="summaryBtn" class="btn-primary align-end">
+                            <span class="btn-text">Summarize</span>
+                            <span class="btn-loader" style="display: none;"></span>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="summaryResult" class="output-box" style="display: none;">
+                    <div class="output-header">
+                        <span class="output-label">Summary:</span>
+                        <button type="button" class="copy-btn" onclick="copyContent('summaryAnswerText')">📋 Copy</button>
+                    </div>
+                    <div id="summaryAnswerText" class="output-content markdown-body"></div>
+                </div>
+            </section>
+
+
+            <!-- 4. Quiz Generation Module -->
+            <section id="quiz-section" class="module-card">
+                <div class="card-header">
+                    <div class="icon-bubble icon-amber">🎯</div>
+                    <div>
+                        <h2 class="card-title">Generate a Quiz:</h2>
+                        <p class="card-desc">Generates 3 interactive multiple-choice questions with 4 options to test your understanding.</p>
+                    </div>
+                </div>
+
+                <div class="example-chips">
+                    <span class="chip-label">Quick test:</span>
+                    <button type="button" class="chip" onclick="fillInput('quizInput', 'The Pythagoras Theorem')">Pythagoras Theorem</button>
+                    <button type="button" class="chip" onclick="fillInput('quizInput', 'Solar System')">Solar System</button>
+                    <button type="button" class="chip" onclick="fillInput('quizInput', 'Cellular Respiration')">Cellular Respiration</button>
+                </div>
+
+                <form id="quizForm" class="action-form" onsubmit="handleQuiz(event)">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="quizInput" 
+                            name="text" 
+                            placeholder="Solar System" 
+                            required 
+                            autocomplete="off"
+                        >
+                        <button type="submit" id="quizBtn" class="btn-primary">
+                            <span class="btn-text">Generate Quiz</span>
+                            <span class="btn-loader" style="display: none;"></span>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="quizResult" class="output-box" style="display: none;">
+                    <div class="output-header">
+                        <span class="output-label">Quiz:</span>
+                        <div id="quizScoreBadge" class="score-badge" style="display: none;">Score: 0/3</div>
+                    </div>
+                    <div id="quizQuestionsContainer" class="quiz-container"></div>
+                </div>
+            </section>
+
+
+            <!-- 5. Learning Recommendations Module -->
+            <section id="learning-section" class="module-card">
+                <div class="card-header">
+                    <div class="icon-bubble icon-indigo">🚀</div>
+                    <div>
+                        <h2 class="card-title">Get Learning Recommendations:</h2>
+                        <p class="card-desc">Receive a personalized, structured learning roadmap from beginner to advanced with study resources.</p>
+                    </div>
+                </div>
+
+                <div class="example-chips">
+                    <span class="chip-label">Quick test:</span>
+                    <button type="button" class="chip" onclick="fillInput('learnInput', 'SQL')">SQL</button>
+                    <button type="button" class="chip" onclick="fillInput('learnInput', 'Linear Regression')">Linear Regression</button>
+                    <button type="button" class="chip" onclick="fillInput('learnInput', 'Data Structures & Algorithms')">Data Structures</button>
+                </div>
+
+                <form id="learnForm" class="action-form" onsubmit="handleLearning(event)">
+                    <div class="input-group">
+                        <input 
+                            type="text" 
+                            id="learnInput" 
+                            name="topic" 
+                            placeholder="e.g. Linear Regression" 
+                            required 
+                            autocomplete="off"
+                        >
+                        <button type="submit" id="learnBtn" class="btn-primary">
+                            <span class="btn-text">Get Recommendations</span>
+                            <span class="btn-loader" style="display: none;"></span>
+                        </button>
+                    </div>
+                </form>
+
+                <div id="learnResult" class="output-box" style="display: none;">
+                    <div class="output-header">
+                        <span id="learnResultTitle" class="output-label">Learning Recommendations:</span>
+                        <button type="button" class="copy-btn" onclick="copyContent('learnAnswerText')">📋 Copy</button>
+                    </div>
+                    <div id="learnAnswerText" class="output-content markdown-body"></div>
+                </div>
+            </section>
+
+        </main>
+
+        <!-- Footer -->
+        <footer class="main-footer">
+            <p>EduGenie &bull; Google Gemini Powered Learning Assistant</p>
+            <p class="footer-sub">SmartBridge &bull; SmartInternz</p>
+        </footer>
+    </div>
+
+    <!-- Frontend Interactive Logic -->
+    <script>
+        // Helper to fill input fields from quick test chips
+        function fillInput(inputId, val) {
+            const el = document.getElementById(inputId);
+            if (el) {
+                el.value = val;
+                el.focus();
+            }
+        }
+
+        // Helper to copy content to clipboard
+        function copyContent(containerId) {
+            const container = document.getElementById(containerId);
+            if (!container) return;
+            const text = container.innerText;
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Copied to clipboard!');
+            }).catch(err => {
+                console.error('Copy failed:', err);
+            });
+        }
+
+        // Toggle button loading state
+        function setButtonLoading(btnId, isLoading) {
+            const btn = document.getElementById(btnId);
+            if (!btn) return;
+            const textSpan = btn.querySelector('.btn-text');
+            const loader = btn.querySelector('.btn-loader');
+            if (isLoading) {
+                btn.disabled = true;
+                if (textSpan) textSpan.style.opacity = '0.5';
+                if (loader) loader.style.display = 'inline-block';
+            } else {
+                btn.disabled = false;
+                if (textSpan) textSpan.style.opacity = '1';
+                if (loader) loader.style.display = 'none';
+            }
+        }
+
+        // Simple Markdown parser for clean styling
+        function formatMarkdown(text) {
+            if (!text) return '';
+            let formatted = text
+                // Escape HTML tags to prevent XSS
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+
+            // Headers
+            formatted = formatted.replace(/^### (.*$)/gim, '<h3>$1</h3>');
+            formatted = formatted.replace(/^## (.*$)/gim, '<h2>$1</h2>');
+            formatted = formatted.replace(/^# (.*$)/gim, '<h1>$1</h1>');
+
+            // Bold & Italics
+            formatted = formatted.replace(/\*\*(.*?)\*\*/gim, '<strong>$1</strong>');
+            formatted = formatted.replace(/\*(.*?)\*/gim, '<em>$1</em>');
+
+            // Bullet points
+            formatted = formatted.replace(/^\s*\*\s+(.*$)/gim, '<li>$1</li>');
+            formatted = formatted.replace(/^\s*-\s+(.*$)/gim, '<li>$1</li>');
+            formatted = formatted.replace(/<\/li>\n<li>/gim, '</li><li>');
+            formatted = formatted.replace(/(<li>.*<\/li>)/gim, '<ul>$1</ul>');
+
+            // Paragraphs and new lines
+            formatted = formatted.replace(/\n\n+/g, '</p><p>');
+            formatted = formatted.replace(/\n/g, '<br>');
+            return '<p>' + formatted + '</p>';
+        }
+
+        // 1. Q&A Handler
+        async function handleQA(e) {
+            e.preventDefault();
+            const input = document.getElementById('questionInput');
+            const question = input.value.trim();
+            if (!question) return;
+
+            setButtonLoading('qaBtn', true);
+            const resultBox = document.getElementById('qaResult');
+            const answerText = document.getElementById('qaAnswerText');
+
+            try {
+                const response = await fetch(`/qa?question=${encodeURIComponent(question)}`);
+                const data = await response.json();
+                
+                answerText.innerHTML = formatMarkdown(data.answer || 'No answer returned.');
+                resultBox.style.display = 'block';
+            } catch (err) {
+                answerText.innerHTML = `<span class="error-msg">⚠️ Error connecting to server: ${err.message}</span>`;
+                resultBox.style.display = 'block';
+            } finally {
+                setButtonLoading('qaBtn', false);
+            }
+        }
+
+        // 2. Explain Handler
+        async function handleExplain(e) {
+            e.preventDefault();
+            const input = document.getElementById('explainInput');
+            const topic = input.value.trim();
+            if (!topic) return;
+
+            setButtonLoading('explainBtn', true);
+            const resultBox = document.getElementById('explainResult');
+            const answerText = document.getElementById('explainAnswerText');
+
+            try {
+                const response = await fetch('/explain', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ topic: topic })
+                });
+                const data = await response.json();
+                
+                answerText.innerHTML = formatMarkdown(data.explanation || data.error || 'No explanation returned.');
+                resultBox.style.display = 'block';
+            } catch (err) {
+                answerText.innerHTML = `<span class="error-msg">⚠️ Error connecting to server: ${err.message}</span>`;
+                resultBox.style.display = 'block';
+            } finally {
+                setButtonLoading('explainBtn', false);
+            }
+        }
+
+        // 3. Summarize Handler
+        async function handleSummarize(e) {
+            e.preventDefault();
+            const input = document.getElementById('summaryInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            setButtonLoading('summaryBtn', true);
+            const resultBox = document.getElementById('summaryResult');
+            const answerText = document.getElementById('summaryAnswerText');
+
+            try {
+                const response = await fetch('/summarize', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: text })
+                });
+                const data = await response.json();
+                
+                answerText.innerHTML = formatMarkdown(data.summary || data.error || 'No summary returned.');
+                resultBox.style.display = 'block';
+            } catch (err) {
+                answerText.innerHTML = `<span class="error-msg">⚠️ Error connecting to server: ${err.message}</span>`;
+                resultBox.style.display = 'block';
+            } finally {
+                setButtonLoading('summaryBtn', false);
+            }
+        }
+
+        // 4. Quiz Handler
+        let currentQuizQuestions = [];
+
+        async function handleQuiz(e) {
+            e.preventDefault();
+            const input = document.getElementById('quizInput');
+            const text = input.value.trim();
+            if (!text) return;
+
+            setButtonLoading('quizBtn', true);
+            const resultBox = document.getElementById('quizResult');
+            const container = document.getElementById('quizQuestionsContainer');
+            const scoreBadge = document.getElementById('quizScoreBadge');
+
+            container.innerHTML = '';
+            scoreBadge.style.display = 'none';
+
+            try {
+                const response = await fetch('/quiz', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ text: text })
+                });
+                const data = await response.json();
+                const quizList = data.quiz;
+
+                if (!Array.isArray(quizList) || quizList.length === 0) {
+                    container.innerHTML = '<p class="error-msg">No quiz questions generated. Please try again.</p>';
+                    resultBox.style.display = 'block';
+                    return;
+                }
+
+                currentQuizQuestions = quizList;
+                renderQuizQuestions(quizList);
+                resultBox.style.display = 'block';
+            } catch (err) {
+                container.innerHTML = `<p class="error-msg">⚠️ Error connecting to server: ${err.message}</p>`;
+                resultBox.style.display = 'block';
+            } finally {
+                setButtonLoading('quizBtn', false);
+            }
+        }
+
+        function renderQuizQuestions(questions) {
+            const container = document.getElementById('quizQuestionsContainer');
+            container.innerHTML = '';
+
+            questions.forEach((q, qIndex) => {
+                const qCard = document.createElement('div');
+                qCard.className = 'quiz-question-card';
+                qCard.id = `quizCard_${qIndex}`;
+
+                const qTitle = document.createElement('h3');
+                qTitle.className = 'question-title';
+                qTitle.innerText = `Q${qIndex + 1}: ${q.question}`;
+                qCard.appendChild(qTitle);
+
+                const optionsList = document.createElement('div');
+                optionsList.className = 'options-list';
+
+                (q.options || []).forEach((opt, optIndex) => {
+                    const optId = `q_${qIndex}_opt_${optIndex}`;
+                    const label = document.createElement('label');
+                    label.className = 'option-label';
+                    label.htmlFor = optId;
+
+                    const radio = document.createElement('input');
+                    radio.type = 'radio';
+                    radio.name = `question_${qIndex}`;
+                    radio.value = opt;
+                    radio.id = optId;
+
+                    const customRadio = document.createElement('span');
+                    customRadio.className = 'radio-custom';
+
+                    const textSpan = document.createElement('span');
+                    textSpan.className = 'option-text';
+                    textSpan.innerText = opt;
+
+                    label.appendChild(radio);
+                    label.appendChild(customRadio);
+                    label.appendChild(textSpan);
+                    optionsList.appendChild(label);
+                });
+
+                qCard.appendChild(optionsList);
+
+                // Check Answer Button
+                const checkBtn = document.createElement('button');
+                checkBtn.type = 'button';
+                checkBtn.className = 'btn-check-answer';
+                checkBtn.innerText = 'Check Answer';
+                checkBtn.onclick = () => checkQuestionAnswer(qIndex, q.answer);
+                qCard.appendChild(checkBtn);
+
+                // Feedback result container
+                const feedbackDiv = document.createElement('div');
+                feedbackDiv.id = `feedback_${qIndex}`;
+                feedbackDiv.className = 'quiz-feedback';
+                feedbackDiv.style.display = 'none';
+                qCard.appendChild(feedbackDiv);
+
+                container.appendChild(qCard);
+            });
+        }
+
+        function checkQuestionAnswer(qIndex, correctAnswer) {
+            const selectedRadio = document.querySelector(`input[name="question_${qIndex}"]:checked`);
+            const feedbackDiv = document.getElementById(`feedback_${qIndex}`);
+            if (!feedbackDiv) return;
+
+            if (!selectedRadio) {
+                feedbackDiv.innerHTML = '<span class="warn-text">Please select an option first!</span>';
+                feedbackDiv.className = 'quiz-feedback feedback-warn';
+                feedbackDiv.style.display = 'block';
+                return;
+            }
+
+            const selectedValue = selectedRadio.value.trim().toLowerCase();
+            const correctValue = (correctAnswer || '').trim().toLowerCase();
+
+            // Check if matches exact option or option letter
+            const isCorrect = selectedValue === correctValue || 
+                              selectedValue.startsWith(correctValue) || 
+                              correctValue.startsWith(selectedValue);
+
+            if (isCorrect) {
+                feedbackDiv.innerHTML = '<span class="correct-badge">✔ Correct!</span>';
+                feedbackDiv.className = 'quiz-feedback feedback-correct';
+            } else {
+                feedbackDiv.innerHTML = `<span class="incorrect-badge">❌ Incorrect. Correct answer: <strong>${correctAnswer}</strong></span>`;
+                feedbackDiv.className = 'quiz-feedback feedback-incorrect';
+            }
+            feedbackDiv.style.display = 'block';
+            updateQuizScore();
+        }
+
+        function updateQuizScore() {
+            let correctCount = 0;
+            const feedbacks = document.querySelectorAll('.quiz-feedback');
+            feedbacks.forEach(fb => {
+                if (fb.classList.contains('feedback-correct')) correctCount++;
+            });
+            const badge = document.getElementById('quizScoreBadge');
+            if (badge && currentQuizQuestions.length > 0) {
+                badge.innerText = `Score: ${correctCount}/${currentQuizQuestions.length}`;
+                badge.style.display = 'inline-block';
+            }
+        }
+
+        // 5. Learning Recommendations Handler
+        async function handleLearning(e) {
+            e.preventDefault();
+            const input = document.getElementById('learnInput');
+            const topic = input.value.trim();
+            if (!topic) return;
+
+            setButtonLoading('learnBtn', true);
+            const resultBox = document.getElementById('learnResult');
+            const titleLabel = document.getElementById('learnResultTitle');
+            const answerText = document.getElementById('learnAnswerText');
+
+            try {
+                const response = await fetch(`/learn/recommendations?topic=${encodeURIComponent(topic)}`);
+                const data = await response.json();
+                
+                titleLabel.innerText = `Learning Recommendations for "${data.topic || topic}":`;
+                answerText.innerHTML = formatMarkdown(data.recommendation || 'No recommendations generated.');
+                resultBox.style.display = 'block';
+            } catch (err) {
+                answerText.innerHTML = `<span class="error-msg">⚠️ Error connecting to server: ${err.message}</span>`;
+                resultBox.style.display = 'block';
+            } finally {
+                setButtonLoading('learnBtn', false);
+            }
+        }
+    </script>
+</body>
+</html>
